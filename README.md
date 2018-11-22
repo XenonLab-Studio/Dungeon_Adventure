@@ -41,10 +41,10 @@ On Linux (and other Unix-like systems), I do not guarantee that it will work
 under Windows and MacOS, in case of problems contact me: xenonlab.develop@gmail.com
 
 **Linux Ubuntu/Mint:** <br>
-$ sudo apt-get install git build-essential cmake make gawk
+sudo apt-get install git build-essential cmake make gawk
 
 **Arch Linux/Manjaro:** <br>
-$ sudo pacman -S git base-devel cmake make gawk
+sudo pacman -S git base-devel cmake make gawk
 
 **Build**
 Open a terminal window, and navigate to your Downloads directory: <br>
