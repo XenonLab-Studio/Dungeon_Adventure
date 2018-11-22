@@ -101,9 +101,11 @@ static int parseAndExecute()
 int main()
 {
    printf("\n");
-   printf("\t\t\tWelcome to Dungeon Adventure\n\n\n");
-   printf("\t\t\t   Stefano Peris (c) 2018\n");
-   printf("\n\n\n\n\n\n\n\n\n\n");
+   printf("\t\t\t********************************\n");
+   printf("\t\t\t* Welcome to Dungeon Adventure *\n");
+   printf("\t\t\t********************************\n\n");
+   printf("\t\t\t     Stefano Peris (c) 2018\n");
+   printf("\n\n\n\n\n\n\n\n");
    /* at the start of the game, describe the player's surroundings, as if the player entered the command 'look around'. */
    executeLook("around");
    /* output text to the screen; the escape sequence \n represents a newline. */
