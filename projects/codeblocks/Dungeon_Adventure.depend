@@ -1,5 +1,29 @@
 # depslib dependency file v1.0
-1542889821 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/location.c
+1542901877 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/location.c
 	<stdio.h>
 	<string.h>
+	"object.h"
+	"misc.h"
+
+1542892891 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/main.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"location.h"
+
+1542900386 /home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/location.h
+
+1542901113 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/misc.c
+	<stdio.h>
+	<string.h>
+	"object.h"
+	"misc.h"
+
+1542900378 /home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/object.h
+
+1542900540 /home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/misc.h
+
+1542900696 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/object.c
+	<stdio.h>
+	"object.h"
 

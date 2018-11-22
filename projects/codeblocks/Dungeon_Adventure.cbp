@@ -39,6 +39,14 @@
 		<Unit filename="../../main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../misc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../misc.h" />
+		<Unit filename="../../object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../object.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
