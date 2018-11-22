@@ -1,3 +1,5 @@
+# cmake files for the "Dungeon Adventure" project.
+
 cmake_minimum_required(VERSION 3.5.0)
 
 # Compiler settings (this must come before calling project).
