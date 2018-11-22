@@ -36,7 +36,6 @@ ________________________________________________________________________________
 <br>
 
 ## Unix/Linux
-----------------------
 
 On Linux (and other Unix-like systems), I do not guarantee that it will work
 under Windows and MacOS, in case of problems contact me:
@@ -61,7 +60,6 @@ Open a terminal window, and navigate to your Downloads directory: <br>
 <br>
 
 ## Windows
------------------
 
 *Is possible to build this code for Windows 10 (compiler MinGW)*.
 
