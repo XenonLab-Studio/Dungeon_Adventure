@@ -1,4 +1,4 @@
-/* object.c
+/* misc.c
 
 ***********************************************
 * PROJECT NAME: DUNGEON ADVENTURE             *
@@ -34,15 +34,53 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
 #include <stdio.h>
+#include <string.h>
 
-#include "object.h"
+#include "../include/object.h"
+#include "../include/misc.h"
 
 
-OBJECT objs[] = {
-   {"an open field", "field"   , NULL  },
-   {"a little cave", "cave"    , NULL  },
-   {"a silver coin", "silver"  , field },
-   {"a gold coin"  , "gold"    , cave  },
-   {"a burly guard", "guard"   , field },
-   {"yourself"     , "yourself", field }
-};
+/*
+function parseObject returns a pointer to the object with the specified tag (parameter noun).
+If the tag could not be found in the array of objects, NULL is returned.
+*/
+OBJECT *parseObject(const char *noun)
+{
+   OBJECT *obj, *found = NULL;
+   for (obj = objs; obj < endOfObjs; obj++)
+   {
+      if (noun != NULL && strcmp(noun, obj->tag) == 0)
+      {
+         found = obj;
+      }
+   }
+   return found;
+}
+
+/*
+function listObjectsAtLocation prints a list of objects (items, persons)
+present at a specific location (parameter location).
+Object player is excluded from the list.
+*/
+int listObjectsAtLocation(OBJECT *location)
+{
+   int count = 0;
+   OBJECT *obj;
+   for (obj = objs; obj < endOfObjs; obj++)
+   {
+      if (obj != player && obj->location == location)
+      {
+         /*
+         the list starts with a line “You see:”, but it is not printed until the first object is found.
+         There is no output when the list is empty.
+         */
+         if (count++ == 0)
+         {
+            printf("You see:\n");
+         }
+         printf("%s\n", obj->description);
+      }
+   }
+   /* the function returns the number of objects in the list. */
+   return count;
+}

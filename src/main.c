@@ -39,7 +39,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <string.h>
 
 /* uses the functions defined in the separate modules of the program. */
-#include "location.h"
+#include "../include/location.h"
 
 
 /* string buffer to collect keyboard input. */

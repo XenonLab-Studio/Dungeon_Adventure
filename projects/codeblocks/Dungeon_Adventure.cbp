@@ -31,22 +31,23 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../../CMakeLists.txt" />
 		<Unit filename="../../LICENSE" />
-		<Unit filename="../../location.c">
+		<Unit filename="../../include/location.h" />
+		<Unit filename="../../include/misc.h" />
+		<Unit filename="../../include/object.h" />
+		<Unit filename="../../src/location.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../location.h" />
-		<Unit filename="../../main.c">
+		<Unit filename="../../src/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../misc.c">
+		<Unit filename="../../src/misc.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../misc.h" />
-		<Unit filename="../../object.c">
+		<Unit filename="../../src/object.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../object.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

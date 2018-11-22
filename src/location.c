@@ -36,8 +36,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <string.h>
 
-#include "object.h"
-#include "misc.h"
+#include "../include/object.h"
+#include "../include/misc.h"
+
 
 /*
 I use a single statement to define a type (struct location),

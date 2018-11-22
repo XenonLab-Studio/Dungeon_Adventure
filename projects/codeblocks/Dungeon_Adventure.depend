@@ -27,3 +27,23 @@
 	<stdio.h>
 	"object.h"
 
+1542907038 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/src/location.c
+	<stdio.h>
+	<string.h>
+	"../include/object.h"
+	"../include/misc.h"
+
+1542900378 /home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/include/object.h
+
+1542900540 /home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/include/misc.h
+
+1542907058 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/src/misc.c
+	<stdio.h>
+	<string.h>
+	"../include/object.h"
+	"../include/misc.h"
+
+1542907071 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/src/object.c
+	<stdio.h>
+	"../include/object.h"
+
