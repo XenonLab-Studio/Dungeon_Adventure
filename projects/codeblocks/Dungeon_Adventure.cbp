@@ -33,6 +33,7 @@
 		</Compiler>
 		<Unit filename="../../CMakeLists.txt" />
 		<Unit filename="../../LICENSE" />
+		<Unit filename="../../README.md" />
 		<Unit filename="../../include/location.h" />
 		<Unit filename="../../include/misc.h" />
 		<Unit filename="../../include/object.h" />
