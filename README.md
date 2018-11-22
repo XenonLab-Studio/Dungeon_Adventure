@@ -31,11 +31,11 @@ ________________________________________________________________________________
 
 <br>
 
-## INSTALLATION
+# INSTALLATION
 
 <br>
 
-### Unix/Linux
+## Unix/Linux
 ----------------------
 
 On Linux (and other Unix-like systems), I do not guarantee that it will work
@@ -60,14 +60,14 @@ Open a terminal window, and navigate to your Downloads directory: <br>
 
 <br>
 
-### Windows
+## Windows
 -----------------
 
 *Is possible to build this code for Windows 10 (compiler MinGW)*.
 
 <br>
 
-### MacOS
+## MacOS
 
 *The build should be identical on MacOS (the project uses the standard C libraries). I do not own MacOS, so I do not have any useful information to give.*
 
