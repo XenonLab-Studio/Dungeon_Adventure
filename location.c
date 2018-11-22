@@ -36,6 +36,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <string.h>
 
+#include "object.h"
+#include "misc.h"
 
 /*
 I use a single statement to define a type (struct location),
@@ -73,7 +75,12 @@ void executeLook(const char *noun)
 {
    if (noun != NULL && strcmp(noun, "around") == 0)
    {
-      printf("You are in %s.\n", locs[locationOfPlayer].description);
+      printf("You are in %s.\n", player->location->description);
+      /*
+      use function listObjectsAtLocation (from misc.c)
+      to show a list of items and persons present at the current location.
+      */
+      listObjectsAtLocation(player->location);
    }
    else
    {
@@ -84,30 +91,23 @@ void executeLook(const char *noun)
 void executeGo(const char *noun)
 {
    /*
-   because numberOfLocations is an unsigned integer,
-   we use the same type to declare variables locationOfPlayer and i.
+   using the parseObject function (from misc.c),
+   I deleted the loop from the executeGo function,
+   making the code more readable.
    */
-   unsigned i;
-   for (i = 0; i < numberOfLocations; i++)
+   OBJECT *obj = parseObject(noun);
+   if (obj == NULL)
    {
-      if (noun != NULL && strcmp(noun, locs[i].tag) == 0)
-      {
-         if (i == locationOfPlayer)
-         {
-            printf("You are already there.\n");
-         }
-         else
-         {
-            printf("OK.\n");
-            locationOfPlayer = i;
-            /*
-            after the player has moved, the new location is immediately reported back,
-            as if the player entered the command 'look around'.
-            */
-            executeLook("around");
-         }
-         return;
-      }
+      printf("I don't understand where you want to go.\n");
    }
-   printf("I don't understand where you want to go.\n");
+   else if (obj == player->location)
+   {
+      printf("You are already there.\n");
+   }
+   else
+   {
+      printf("OK.\n");
+      player->location = obj;
+      executeLook("around");
+   }
 }

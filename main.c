@@ -107,7 +107,8 @@ int main()
    /* at the start of the game, describe the player's surroundings, as if the player entered the command 'look around'. */
    executeLook("around");
    /* output text to the screen; the escape sequence \n represents a newline. */
-   printf("It's very dark in here.\n");
+   /* printf("It's very dark in here.\n"); */
+
    /*
    this is the main loop; it alternately calls getInput and parseAndExecute until either one of them returns false
    (represented by zero in C).

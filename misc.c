@@ -1,4 +1,4 @@
-/* location.h
+/* misc.c
 
 ***********************************************
 * PROJECT NAME: DUNGEON ADVENTURE             *
@@ -33,12 +33,54 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef LOCATION_H_INCLUDED
-#define LOCATION_H_INCLUDED
+#include <stdio.h>
+#include <string.h>
+
+#include "object.h"
+#include "misc.h"
 
 
-extern void executeLook(const char *noun);
-extern void executeGo(const char *noun);
+/*
+function parseObject returns a pointer to the object with the specified tag (parameter noun).
+If the tag could not be found in the array of objects, NULL is returned.
+*/
+OBJECT *parseObject(const char *noun)
+{
+   OBJECT *obj, *found = NULL;
+   for (obj = objs; obj < endOfObjs; obj++)
+   {
+      if (noun != NULL && strcmp(noun, obj->tag) == 0)
+      {
+         found = obj;
+      }
+   }
+   return found;
+}
 
-
-#endif /* LOCATION_H_INCLUDED */
+/*
+function listObjectsAtLocation prints a list of objects (items, persons)
+present at a specific location (parameter location).
+Object player is excluded from the list.
+*/
+int listObjectsAtLocation(OBJECT *location)
+{
+   int count = 0;
+   OBJECT *obj;
+   for (obj = objs; obj < endOfObjs; obj++)
+   {
+      if (obj != player && obj->location == location)
+      {
+         /*
+         the list starts with a line “You see:”, but it is not printed until the first object is found.
+         There is no output when the list is empty.
+         */
+         if (count++ == 0)
+         {
+            printf("You see:\n");
+         }
+         printf("%s\n", obj->description);
+      }
+   }
+   /* the function returns the number of objects in the list. */
+   return count;
+}

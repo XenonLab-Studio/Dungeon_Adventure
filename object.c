@@ -1,4 +1,4 @@
-/* location.h
+/* object.c
 
 ***********************************************
 * PROJECT NAME: DUNGEON ADVENTURE             *
@@ -33,12 +33,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef LOCATION_H_INCLUDED
-#define LOCATION_H_INCLUDED
+#include <stdio.h>
+
+#include "object.h"
 
 
-extern void executeLook(const char *noun);
-extern void executeGo(const char *noun);
-
-
-#endif /* LOCATION_H_INCLUDED */
+OBJECT objs[] = {
+   {"an open field", "field"   , NULL  },
+   {"a little cave", "cave"    , NULL  },
+   {"a silver coin", "silver"  , field },
+   {"a gold coin"  , "gold"    , cave  },
+   {"a burly guard", "guard"   , field },
+   {"yourself"     , "yourself", field }
+};

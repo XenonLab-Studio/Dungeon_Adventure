@@ -1,4 +1,4 @@
-/* location.h
+/* misc.h
 
 ***********************************************
 * PROJECT NAME: DUNGEON ADVENTURE             *
@@ -33,12 +33,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef LOCATION_H_INCLUDED
-#define LOCATION_H_INCLUDED
+#ifndef MISC_H_INCLUDED
+#define MISC_H_INCLUDED
 
 
-extern void executeLook(const char *noun);
-extern void executeGo(const char *noun);
+extern OBJECT *parseObject(const char *noun);
+extern int listObjectsAtLocation(OBJECT *location);
 
 
-#endif /* LOCATION_H_INCLUDED */
+#endif /* MISC_H_INCLUDED */

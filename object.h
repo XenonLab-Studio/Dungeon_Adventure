@@ -1,4 +1,4 @@
-/* location.h
+/* object.h
 
 ***********************************************
 * PROJECT NAME: DUNGEON ADVENTURE             *
@@ -33,12 +33,26 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef LOCATION_H_INCLUDED
-#define LOCATION_H_INCLUDED
+#ifndef OBJECT_H_INCLUDED
+#define OBJECT_H_INCLUDED
 
 
-extern void executeLook(const char *noun);
-extern void executeGo(const char *noun);
+typedef struct object {
+   const char    *description;
+   const char    *tag;
+   struct object *location;
+} OBJECT;
+
+extern OBJECT objs[];
+
+#define field      (objs + 0)
+#define cave       (objs + 1)
+#define silver     (objs + 2)
+#define gold       (objs + 3)
+#define guard      (objs + 4)
+#define player     (objs + 5)
+
+#define endOfObjs  (objs + 6)
 
 
-#endif /* LOCATION_H_INCLUDED */
+#endif /* OBJECT_H_INCLUDED */
