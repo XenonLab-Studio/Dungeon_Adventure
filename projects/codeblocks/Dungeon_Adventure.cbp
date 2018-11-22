@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="../../LICENSE" />
+		<Unit filename="../../location.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../location.h" />
 		<Unit filename="../../main.c">
 			<Option compilerVar="CC" />
 		</Unit>
