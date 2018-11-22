@@ -32,10 +32,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*
-a old-style text adventure needs no fancy libraries;
-standard input/output is sufficient, and is widely available.
-*/
+// a old-style text adventure needs no fancy libraries; standard input/output is sufficient, and is widely available.
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -44,7 +41,9 @@ standard input/output is sufficient, and is widely available.
 int main()
 {
    printf("Welcome to Dungeon Adventure.\n");
+   // output text to the screen; the escape sequence \n represents a newline
    printf("It's very dark in here.\n");
    printf("\nBye!\n");
+   // function main returns a zero exit code to successfully complete the program
    return 0;
 }
