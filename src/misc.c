@@ -41,7 +41,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
 /*
-function parseObject returns a pointer to the object with the specified tag (parameter noun).
+Function parseObject returns a pointer to the object with the specified tag (parameter noun).
 If the tag could not be found in the array of objects, NULL is returned.
 */
 OBJECT *parseObject(const char *noun)
@@ -58,7 +58,24 @@ OBJECT *parseObject(const char *noun)
 }
 
 /*
-function listObjectsAtLocation prints a list of objects (items, persons)
+Function personHere returns a pointer to the person in the same position as the player or NULL if the player is alone.
+I have also included a comprehensive and codified list of non-player (in this case, only one: the guard).
+*/
+OBJECT *personHere(void)
+{
+   OBJECT *obj;
+   for (obj = objs; obj < endOfObjs; obj++)
+   {
+      if (obj->location == player->location && obj == guard)
+      {
+         return obj;
+      }
+   }
+   return NULL;
+}
+
+/*
+Function listObjectsAtLocation prints a list of objects (items, persons)
 present at a specific location (parameter location).
 Object player is excluded from the list.
 */
@@ -71,7 +88,7 @@ int listObjectsAtLocation(OBJECT *location)
       if (obj != player && obj->location == location)
       {
          /*
-         the list starts with a line “You see:”, but it is not printed until the first object is found.
+         The list starts with a line “You see:”, but it is not printed until the first object is found.
          There is no output when the list is empty.
          */
          if (count++ == 0)
@@ -81,6 +98,6 @@ int listObjectsAtLocation(OBJECT *location)
          printf("%s\n", obj->description);
       }
    }
-   /* the function returns the number of objects in the list. */
+   /* The function returns the number of objects in the list. */
    return count;
 }

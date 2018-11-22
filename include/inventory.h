@@ -1,4 +1,4 @@
-/* misc.h
+/* inventory.h
 
 ***********************************************
 * PROJECT NAME: DUNGEON ADVENTURE             *
@@ -33,13 +33,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef MISC_H_INCLUDED
-#define MISC_H_INCLUDED
+#ifndef INVENTORY_H_INCLUDED
+#define INVENTORY_H_INCLUDED
 
 
-extern OBJECT *parseObject(const char *noun);
-extern OBJECT *personHere(void);
-extern int listObjectsAtLocation(OBJECT *location);
+extern void executeGet(const char *noun);
+extern void executeDrop(const char *noun);
+extern void executeGive(const char *noun);
+extern void executeAsk(const char *noun);
+extern void executeInventory(void);
 
 
-#endif /* MISC_H_INCLUDED */
+#endif /* INVENTORY_H_INCLUDED */

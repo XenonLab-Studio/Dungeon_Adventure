@@ -40,6 +40,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 /* uses the functions defined in the separate modules of the program. */
 #include "../include/location.h"
+#include "../include/inventory.h"
 
 
 /* string buffer to collect keyboard input. */
@@ -86,6 +87,26 @@ static int parseAndExecute()
       {
          /* call the new functions. */
          executeGo(noun);
+      }
+      else if (strcmp(verb, "get") == 0)
+      {
+         executeGet(noun);
+      }
+      else if (strcmp(verb, "drop") == 0)
+      {
+         executeDrop(noun);
+      }
+      else if (strcmp(verb, "give") == 0)
+      {
+         executeGive(noun);
+      }
+      else if (strcmp(verb, "ask") == 0)
+      {
+         executeAsk(noun);
+      }
+      else if (strcmp(verb, "inventory") == 0)
+      {
+         executeInventory();
       }
       else
       {
