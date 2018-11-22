@@ -31,8 +31,9 @@ ________________________________________________________________________________
 
 <br>
 
-
 ## INSTALLATION
+
+<br>
 
 ### Unix/Linux
 ----------------------
@@ -55,16 +56,22 @@ Open a terminal window, and navigate to your Downloads directory: <br>
 5. **$ cd build** <br>
 6. **$ ./dungeonadv** to start the game! <br>
 
-**Optional:** *to clean the folder from the compilation files, write "make clean-all" Cleans all files except the "build" directory and the executable you created.* <br>
+**Optional:** *to clean the folder from the compilation files, write "make clean-all" Cleans all files except the "build" directory and the executable you created.*
+
+<br>
 
 ### Windows
 -----------------
 
-*Is possible to build this code for Windows 10 (compiler MinGW)*. <br>
+*Is possible to build this code for Windows 10 (compiler MinGW)*.
+
+<br>
 
 ### MacOS
 
-*The build should be identical on MacOS (the project uses the standard C libraries). I do not own MacOS, so I do not have any useful information to give.* <br>
+*The build should be identical on MacOS (the project uses the standard C libraries). I do not own MacOS, so I do not have any useful information to give.*
+
+<br>
 
 ## LICENSE
 
@@ -84,4 +91,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
