@@ -33,22 +33,22 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-// a old-style text adventure needs no fancy libraries; standard library is sufficient, and is widely available.
+/* a old-style text adventure needs no fancy libraries; standard library is sufficient, and is widely available. */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-// uses the functions defined in the separate modules of the program.
+/* uses the functions defined in the separate modules of the program. */
 #include "location.h"
 
 
-// string buffer to collect keyboard input.
+/* string buffer to collect keyboard input. */
 static char input[100];
 
 static int getInput()
 {
-   // prompt
-   printf("\n--> ");
+   /* prompt */
+   printf("\n\n\n--> ");
    /*
    standard function fgets gets input from the keyboard.
    If the player presses end-of-file, function getInput will return false and the program will end.
@@ -58,14 +58,14 @@ static int getInput()
 
 static int parseAndExecute()
 {
-   // standard function strtok is used to build a very basic verb-noun parser in just two lines of code.
+   /* standard function strtok is used to build a very basic verb-noun parser in just two lines of code. */
    char *verb = strtok(input, " \n");
    /*
    C compiler may give a warning regarding the unused variable ‘noun’ on this line.
    Please ignore this message; the issue will be gone in the next commit.
    */
    char *noun = strtok(NULL, " \n");
-   // nothing to do if the player enters nothing (or just spaces).
+   /* nothing to do if the player enters nothing (or just spaces). */
    if (verb != NULL)
    {
       /*
@@ -74,37 +74,39 @@ static int parseAndExecute()
       */
       if (strcmp(verb, "quit") == 0)
       {
-         // in C, false is represented by zero. This return will cause the main loop to end.
+         /* in C, false is represented by zero. This return will cause the main loop to end. */
          return 0;
       }
       else if (strcmp(verb, "look") == 0)
       {
-         // call the new functions.
+         /* call the new functions. */
          executeLook(noun);
       }
       else if (strcmp(verb, "go") == 0)
       {
-         // call the new functions.
+         /* call the new functions. */
          executeGo(noun);
       }
       else
       {
-
-         // a typical printf-style format string, with %s as placeholder for the additional parameter verb.
+         /* a typical printf-style format string, with %s as placeholder for the additional parameter verb. */
          printf("I don't know how to '%s'.\n", verb);
       }
    }
-   // in C, true is represented by any non-zero number (typically 1).
+   /* in C, true is represented by any non-zero number (typically 1). */
    return 1;
 }
 
-// function main is the starting point of any C program.
+/* function main is the starting point of any C program. */
 int main()
 {
-   printf("Welcome to Dungeon Adventure.\n");
-   // at the start of the game, describe the player's surroundings, as if the player entered the command 'look around'.
+   printf("\n");
+   printf("\t\t\tWelcome to Dungeon Adventure\n\n\n");
+   printf("\t\t\t   Stefano Peris (c) 2018\n");
+   printf("\n\n\n\n\n\n\n\n\n\n");
+   /* at the start of the game, describe the player's surroundings, as if the player entered the command 'look around'. */
    executeLook("around");
-   // output text to the screen; the escape sequence \n represents a newline
+   /* output text to the screen; the escape sequence \n represents a newline. */
    printf("It's very dark in here.\n");
    /*
    this is the main loop; it alternately calls getInput and parseAndExecute until either one of them returns false
@@ -112,6 +114,6 @@ int main()
    */
    while (getInput() && parseAndExecute());
    printf("\nBye!\n");
-   // function main returns a zero exit code to successfully complete the program
+   /* function main returns a zero exit code to successfully complete the program. */
    return 0;
 }

@@ -39,4 +39,4 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 extern void executeLook(const char *noun);
 extern void executeGo(const char *noun);
 
-#endif // LOCATION_H_INCLUDED
+#endif /* LOCATION_H_INCLUDED */

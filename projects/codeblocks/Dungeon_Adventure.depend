@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1542889821 source:/home/xenonlab/Documenti/Sviluppo/github/Dungeon_Adventure/location.c
+	<stdio.h>
+	<string.h>
+
