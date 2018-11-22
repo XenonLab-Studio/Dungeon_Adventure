@@ -40,20 +40,20 @@ ________________________________________________________________________________
 On Linux (and other Unix-like systems), I do not guarantee that it will work
 under Windows and MacOS, in case of problems contact me: xenonlab.develop@gmail.com
 
-**Linux Ubuntu/Mint:**
+**Linux Ubuntu/Mint:** <br>
 $ sudo apt-get install git build-essential cmake make gawk
 
-**Arch Linux/Manjaro:**
+**Arch Linux/Manjaro:** <br>
 $ sudo pacman -S git base-devel cmake make gawk
 
 **Build**
 Open a terminal window, and navigate to your Downloads directory: <br>
-1. **$ git clone https://github.com/XenonLab-Studio/Dungeon_Adventure.git** <br>
-2. **$ cd Dungeon_Adventure** <br>
-3. **$ cmake .** <br>
-4. **$ make** <br>
-5. **$ cd build** <br>
-6. **$ ./dungeonadv** to start the game! <br>
+1. **git clone https://github.com/XenonLab-Studio/Dungeon_Adventure.git** <br>
+2. **cd Dungeon_Adventure** <br>
+3. **cmake .** <br>
+4. **make** <br>
+5. **cd build** <br>
+6. **./dungeonadv** to start the game! <br>
 
 **Optional:** *to clean the folder from the compilation files, write "make clean-all" Cleans all files except the "build" directory and the executable you created.*
 
