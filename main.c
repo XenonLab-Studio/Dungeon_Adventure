@@ -25,17 +25,21 @@ the Free Software Foundation, either version 3 of the License, or
 
 Dungeon Adventure is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
+
 
 // a old-style text adventure needs no fancy libraries; standard library is sufficient, and is widely available.
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
+// uses the functions defined in the separate modules of the program.
+#include "location.h"
 
 
 // string buffer to collect keyboard input.
@@ -75,11 +79,13 @@ static int parseAndExecute()
       }
       else if (strcmp(verb, "look") == 0)
       {
-         printf("It's too dark to see.\n");
+         // call the new functions.
+         executeLook(noun);
       }
       else if (strcmp(verb, "go") == 0)
       {
-         printf("It's too dark to go anywhere.\n");
+         // call the new functions.
+         executeGo(noun);
       }
       else
       {
@@ -96,6 +102,8 @@ static int parseAndExecute()
 int main()
 {
    printf("Welcome to Dungeon Adventure.\n");
+   // at the start of the game, describe the player's surroundings, as if the player entered the command 'look around'.
+   executeLook("around");
    // output text to the screen; the escape sequence \n represents a newline
    printf("It's very dark in here.\n");
    /*
