@@ -38,7 +38,7 @@ ________________________________________________________________________________
 ## Unix/Linux
 
 On Linux (and other Unix-like systems), I do not guarantee that it will work
-under Windows and MacOS, in case of problems contact me:
+under Windows and MacOS, in case of problems contact me: xenonlab.develop@gmail.com
 
 **Linux Ubuntu/Mint:**
 $ sudo apt-get install git build-essential cmake make gawk
