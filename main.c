@@ -32,10 +32,65 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// a old-style text adventure needs no fancy libraries; standard input/output is sufficient, and is widely available.
-#include <stdio.h>
+// a old-style text adventure needs no fancy libraries; standard library is sufficient, and is widely available.
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
+
+// string buffer to collect keyboard input.
+static char input[100];
+
+static int getInput()
+{
+   // prompt
+   printf("\n--> ");
+   /*
+   standard function fgets gets input from the keyboard.
+   If the player presses end-of-file, function getInput will return false and the program will end.
+   */
+   return fgets(input, sizeof(input), stdin) != NULL;
+}
+
+static int parseAndExecute()
+{
+   // standard function strtok is used to build a very basic verb-noun parser in just two lines of code.
+   char *verb = strtok(input, " \n");
+   /*
+   C compiler may give a warning regarding the unused variable ‘noun’ on this line.
+   Please ignore this message; the issue will be gone in the next commit.
+   */
+   char *noun = strtok(NULL, " \n");
+   // nothing to do if the player enters nothing (or just spaces).
+   if (verb != NULL)
+   {
+      /*
+      using standard function strcmp to match keyboard input with known verbs (quit, look and go).
+      For now, this is a case-sensitive match, so the player should be careful not to hold shift or press caps lock.
+      */
+      if (strcmp(verb, "quit") == 0)
+      {
+         // in C, false is represented by zero. This return will cause the main loop to end.
+         return 0;
+      }
+      else if (strcmp(verb, "look") == 0)
+      {
+         printf("It's too dark to see.\n");
+      }
+      else if (strcmp(verb, "go") == 0)
+      {
+         printf("It's too dark to go anywhere.\n");
+      }
+      else
+      {
+
+         // a typical printf-style format string, with %s as placeholder for the additional parameter verb.
+         printf("I don't know how to '%s'.\n", verb);
+      }
+   }
+   // in C, true is represented by any non-zero number (typically 1).
+   return 1;
+}
 
 // function main is the starting point of any C program.
 int main()
@@ -43,6 +98,11 @@ int main()
    printf("Welcome to Dungeon Adventure.\n");
    // output text to the screen; the escape sequence \n represents a newline
    printf("It's very dark in here.\n");
+   /*
+   this is the main loop; it alternately calls getInput and parseAndExecute until either one of them returns false
+   (represented by zero in C).
+   */
+   while (getInput() && parseAndExecute());
    printf("\nBye!\n");
    // function main returns a zero exit code to successfully complete the program
    return 0;
