@@ -1,4 +1,4 @@
-/* object.h
+/* libcolor.h
 
 ***********************************************
 * PROJECT NAME: DUNGEON ADVENTURE             *
@@ -33,26 +33,27 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef LIBCOLOR_H
+#define LIBCOLOR_H
 
 
-typedef struct object {
-   const char    *description;
-   const char    *tag;
-   struct object *location;
-} OBJECT;
-
-extern OBJECT objs[];
-
-#define field      (objs + 0)
-#define cave       (objs + 1)
-#define silver     (objs + 2)
-#define gold       (objs + 3)
-#define guard      (objs + 4)
-#define player     (objs + 5)
-
-#define endOfObjs  (objs + 6)
+#include <stdio.h>
 
 
-#endif /* OBJECT_H */
+/*
+ * ANSI escape codes to show colors
+ *
+ * example:
+ *
+ * printf(ANSI_COLOR_GREEN   "This text is GREEN!"   ANSI_COLOR_RESET "\n");
+ */
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
+
+
+#endif /* LIBCOLOR_H */

@@ -33,12 +33,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef LOCATION_H_INCLUDED
-#define LOCATION_H_INCLUDED
+#ifndef LOCATION_H
+#define LOCATION_H
 
 
 extern void executeLook(const char *noun);
 extern void executeGo(const char *noun);
 
 
-#endif /* LOCATION_H_INCLUDED */
+#endif /* LOCATION_H */

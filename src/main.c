@@ -39,6 +39,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <string.h>
 
 /* uses the functions defined in the separate modules of the program. */
+#include "../include/libcolor.h"
 #include "../include/location.h"
 #include "../include/inventory.h"
 
@@ -122,10 +123,10 @@ static int parseAndExecute()
 int main()
 {
    printf("\n");
-   printf("\t\t\t********************************\n");
-   printf("\t\t\t* Welcome to Dungeon Adventure *\n");
-   printf("\t\t\t********************************\n\n");
-   printf("\t\t\t     Stefano Peris (c) 2018\n");
+   printf(ANSI_COLOR_GREEN     "\t\t\t********************************"    ANSI_COLOR_RESET "\n");
+   printf(ANSI_COLOR_GREEN     "\t\t\t* Welcome to Dungeon Adventure *"    ANSI_COLOR_RESET "\n");
+   printf(ANSI_COLOR_GREEN     "\t\t\t********************************"    ANSI_COLOR_RESET "\n\n");
+   printf(ANSI_COLOR_YELLOW    "\t\t\t     Stefano Peris (c) 2018\n"       ANSI_COLOR_RESET "\n");
    printf("\n\n\n\n\n\n\n\n");
    /* at the start of the game, describe the player's surroundings, as if the player entered the command 'look around'. */
    executeLook("around");

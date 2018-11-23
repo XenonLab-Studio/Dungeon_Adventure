@@ -33,8 +33,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef MISC_H_INCLUDED
-#define MISC_H_INCLUDED
+#ifndef MISC_H
+#define MISC_H
 
 
 extern OBJECT *parseObject(const char *noun);
@@ -42,4 +42,4 @@ extern OBJECT *personHere(void);
 extern int listObjectsAtLocation(OBJECT *location);
 
 
-#endif /* MISC_H_INCLUDED */
+#endif /* MISC_H */
