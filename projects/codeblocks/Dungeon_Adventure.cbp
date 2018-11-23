@@ -35,6 +35,7 @@
 		<Unit filename="../../LICENSE" />
 		<Unit filename="../../README.md" />
 		<Unit filename="../../include/inventory.h" />
+		<Unit filename="../../include/libcolor.h" />
 		<Unit filename="../../include/location.h" />
 		<Unit filename="../../include/misc.h" />
 		<Unit filename="../../include/object.h" />
