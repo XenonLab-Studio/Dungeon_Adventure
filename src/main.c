@@ -126,7 +126,7 @@ int main()
    printf(ANSI_COLOR_GREEN     "\t\t\t********************************"    ANSI_COLOR_RESET "\n");
    printf(ANSI_COLOR_GREEN     "\t\t\t* Welcome to Dungeon Adventure *"    ANSI_COLOR_RESET "\n");
    printf(ANSI_COLOR_GREEN     "\t\t\t********************************"    ANSI_COLOR_RESET "\n\n");
-   printf(ANSI_COLOR_YELLOW    "\t\t\t     Stefano Peris (c) 2018\n"       ANSI_COLOR_RESET "\n");
+   printf(ANSI_COLOR_YELLOW    "\t\t\t     Stefano Peris (c) 2018"         ANSI_COLOR_RESET "\n");
    printf("\n\n\n\n\n\n\n\n");
    /* at the start of the game, describe the player's surroundings, as if the player entered the command 'look around'. */
    executeLook("around");
