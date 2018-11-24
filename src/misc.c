@@ -60,6 +60,21 @@ OBJECT *getPassageTo(OBJECT *targetLocation)
    return NULL;
 }
 
+DISTANCE distanceTo(OBJECT *obj)
+{
+   return
+      obj == NULL                                 ? distUnknownObject :
+      obj == player                               ? distPlayer :
+      obj == player->location                     ? distLocation :
+      obj->location == player                     ? distHeld :
+      obj->location == player->location           ? distHere :
+      getPassageTo(obj) != NULL                   ? distOverthere :
+      obj->location == NULL                       ? distNotHere :
+      obj->location->location == player           ? distHeldContained :
+      obj->location->location == player->location ? distHereContained :
+                                                    distNotHere;
+}
+
 /*
 Function parseObject returns a pointer to the object with the specified tag (parameter noun).
 If the tag could not be found in the array of objects, NULL is returned.
@@ -86,7 +101,7 @@ OBJECT *personHere(void)
    OBJECT *obj;
    for (obj = objs; obj < endOfObjs; obj++)
    {
-      if (obj->location == player->location && obj == guard)
+      if (distanceTo(obj) == distHere && obj == guard)
       {
          return obj;
       }

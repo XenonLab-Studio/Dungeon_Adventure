@@ -97,11 +97,12 @@ void executeGo(const char *noun)
    making the code more readable.
    */
    OBJECT *obj = parseObject(noun);
-   if (obj == NULL)
+   DISTANCE distance = distanceTo(obj);
+   if (distance >= distUnknownObject)
    {
       printf("I don't understand where you want to go.\n");
    }
-   else if (obj == player->location)
+   else if (distance == distLocation)
    {
       printf("You are already there.\n");
    }
@@ -110,7 +111,7 @@ void executeGo(const char *noun)
    there must be a passage connecting the two.
    We use a separate getPassageTo function (defined below) to verify it.
    */
-   else if (getPassageTo(obj) != NULL)
+   else if (distance == distOverthere)
    {
       printf("OK.\n");
       player->location = obj;
@@ -120,14 +121,18 @@ void executeGo(const char *noun)
    In addition to <location>, there is now an alternative way for the player to move: go <passage>.
    For example, when in the field, go to the cave and go to the entrance will have the same effect.
    */
-   else if (obj->location == player->location && obj->destination != NULL)
+   else if (distance == distHere && obj->destination != NULL)
    {
       printf("OK.\n");
       player->location = obj->destination;
       executeLook("around");
    }
+   else if (distance < distNotHere)
+   {
+      printf("You can't get any closer than this.\n");
+   }
    else
    {
-      printf("You can't go there.\n");
+      printf("You don't see any %s here.\n", noun);
    }
 }

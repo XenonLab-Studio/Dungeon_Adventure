@@ -52,7 +52,35 @@ static void moveObject(const char *noun, OBJECT *from, OBJECT *to)
    }
    else if (from != obj->location)
    {
-      printf("You can't.\n");
+      switch (distanceTo(obj))
+      {
+      case distPlayer:
+         printf("You should not be doing that to yourself.\n");
+         break;
+      case distHeld:
+         printf("You already have %s.\n", obj->description);
+         break;
+      case distLocation:
+      case distOverthere:
+         printf("That's not an item.\n");
+         break;
+      case distHere:
+         if (from == player)
+         {
+            printf("You have no %s.\n", noun);
+         }
+         else
+         {
+            printf("Sorry, %s has no %s.\n", from->description, noun);
+         }
+         break;
+      case distHeldContained:
+      case distHereContained:
+         printf("Sorry, %s is holding it.\n", obj->location->description);
+         break;
+      default:
+         printf("You don't see any %s here.\n", noun);
+      }
    }
    else if (to == NULL)
    {
