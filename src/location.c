@@ -105,10 +105,29 @@ void executeGo(const char *noun)
    {
       printf("You are already there.\n");
    }
-   else
+   /*
+   The player is no longer allowed to jump freely from one position to the other:
+   there must be a passage connecting the two.
+   We use a separate getPassageTo function (defined below) to verify it.
+   */
+   else if (getPassageTo(obj) != NULL)
    {
       printf("OK.\n");
       player->location = obj;
       executeLook("around");
+   }
+   /*
+   In addition to <location>, there is now an alternative way for the player to move: go <passage>.
+   For example, when in the field, go to the cave and go to the entrance will have the same effect.
+   */
+   else if (obj->location == player->location && obj->destination != NULL)
+   {
+      printf("OK.\n");
+      player->location = obj->destination;
+      executeLook("around");
+   }
+   else
+   {
+      printf("You can't go there.\n");
    }
 }

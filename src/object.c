@@ -39,10 +39,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
 OBJECT objs[] = {
-   {"an open field", "field"   , NULL  },
-   {"a little cave", "cave"    , NULL  },
-   {"a silver coin", "silver"  , field },
-   {"a gold coin"  , "gold"    , cave  },
-   {"a burly guard", "guard"   , field },
-   {"yourself"     , "yourself", field }
+   {"an open field"  , "field"   , NULL , NULL  },
+   {"a little cave"  , "cave"    , NULL , NULL  },
+   {"a silver coin"  , "silver"  , field, NULL  },
+   {"a gold coin"    , "gold"    , cave , NULL  },
+   {"a burly guard"  , "guard"   , field, NULL  },
+   {"yourself"       , "yourself", field, NULL  },
+   {"a cave entrance", "entrance", field, cave  },
+   {"a way out"      , "out"     , cave , field }
 };

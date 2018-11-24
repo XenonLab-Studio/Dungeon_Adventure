@@ -40,6 +40,26 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "../include/misc.h"
 
 
+OBJECT *getPassageTo(OBJECT *targetLocation)
+{
+   OBJECT *obj;
+   /*
+   scans all objects until it encounters a passage that starts from player-> location
+   (the current position of the player) to targetLocation (the function parameter).
+   */
+   for (obj = objs; obj < endOfObjs; obj++)
+   {
+      if (obj->location == player->location &&
+          obj->destination == targetLocation)
+      {
+         /* if a matching passage is found, it returns a pointer to the object of the passage. */
+         return obj;
+      }
+   }
+   /* if such a passage does not exist, it returns NULL. */
+   return NULL;
+}
+
 /*
 Function parseObject returns a pointer to the object with the specified tag (parameter noun).
 If the tag could not be found in the array of objects, NULL is returned.

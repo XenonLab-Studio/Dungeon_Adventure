@@ -37,6 +37,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #define MISC_H
 
 
+extern OBJECT *getPassageTo(OBJECT *targetLocation);
 extern OBJECT *parseObject(const char *noun);
 extern OBJECT *personHere(void);
 extern int listObjectsAtLocation(OBJECT *location);
