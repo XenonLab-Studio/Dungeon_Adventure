@@ -75,6 +75,16 @@ DISTANCE distanceTo(OBJECT *obj)
                                                     distNotHere;
 }
 
+static int nounIsInTags(const char *noun, const char **tags)
+{
+   while (*tags != NULL)
+   {
+      /* the values 1 and 0 represent true and false, respectively. */
+      if (strcmp(noun, *tags++) == 0) return 1;
+   }
+   return 0;
+}
+
 /*
 Function parseObject returns a pointer to the object with the specified tag (parameter noun).
 If the tag could not be found in the array of objects, NULL is returned.
@@ -84,7 +94,13 @@ OBJECT *parseObject(const char *noun)
    OBJECT *obj, *found = NULL;
    for (obj = objs; obj < endOfObjs; obj++)
    {
-      if (noun != NULL && strcmp(noun, obj->tag) == 0)
+      /* with lists of tags, we need more than just a simple strcmp; so I made a separate function nounIsInTags */
+      if (noun != NULL && nounIsInTags(noun, obj->tags) &&
+          /*
+          because of the way enum DISTANCE is numbered (increasing values for increasing distance),
+          the 'less than' operator (<) automatically means 'nearer than'.
+          */
+          distanceTo(obj) < distanceTo(found))
       {
          found = obj;
       }

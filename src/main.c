@@ -67,7 +67,7 @@ static int parseAndExecute()
    C compiler may give a warning regarding the unused variable ‘noun’ on this line.
    Please ignore this message; the issue will be gone in the next commit.
    */
-   char *noun = strtok(NULL, " \n");
+   char *noun = strtok(NULL, "\n");
    /* nothing to do if the player enters nothing (or just spaces). */
    if (verb != NULL)
    {
