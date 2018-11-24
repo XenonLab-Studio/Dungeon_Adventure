@@ -33,4 +33,3 @@ rm -rf CMakeCache.txt cmake_install.cmake Makefile CMakeFiles/
 
 # Also add resources to the target so they are visible in the IDE.
 add_executable(dungeonadv ${SOURCES})
-
