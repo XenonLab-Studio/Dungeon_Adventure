@@ -39,6 +39,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <string.h>
 
 /* uses the functions defined in the separate modules of the program. */
+#include "../include/clear.h"
 #include "../include/libcolor.h"
 #include "../include/location.h"
 #include "../include/inventory.h"
@@ -122,6 +123,9 @@ static int parseAndExecute()
 /* function main is the starting point of any C program. */
 int main()
 {
+   /* clean the terminal and recognize the system in use (see file: clear.h) */
+   clear();
+
    printf("\n");
    printf(ANSI_COLOR_GREEN     "\t\t\t********************************"    ANSI_COLOR_RESET "\n");
    printf(ANSI_COLOR_GREEN     "\t\t\t* Welcome to Dungeon Adventure *"    ANSI_COLOR_RESET "\n");
