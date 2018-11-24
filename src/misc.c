@@ -101,6 +101,7 @@ OBJECT *personHere(void)
    OBJECT *obj;
    for (obj = objs; obj < endOfObjs; obj++)
    {
+      /* simplify some code using the new distanceTo function. */
       if (distanceTo(obj) == distHere && obj == guard)
       {
          return obj;

@@ -79,6 +79,14 @@ static void moveObject(const char *noun, OBJECT *from, OBJECT *to)
          printf("Sorry, %s is holding it.\n", obj->location->description);
          break;
       default:
+         /*
+         I deliberately publish the noun here, not the description; that would give away too much of the game.
+         For example, the player could make a lucky guess and type "get gold" without ever visiting the cave
+         (where the gold coin is located).
+         Responding with "You do not see a gold coin here" is like not being able to hide the wires that suspend
+         the spaceships in a science fiction movie.
+         Instead, we limit ourselves to echoing the name entered by the player: "You do not see any gold here".
+         */
          printf("You don't see any %s here.\n", noun);
       }
    }
