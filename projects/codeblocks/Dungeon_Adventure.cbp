@@ -34,6 +34,7 @@
 		<Unit filename="../../CMakeLists.txt" />
 		<Unit filename="../../LICENSE" />
 		<Unit filename="../../README.md" />
+		<Unit filename="../../dungeon_adventure_icon.png" />
 		<Unit filename="../../include/inventory.h" />
 		<Unit filename="../../include/libcolor.h" />
 		<Unit filename="../../include/location.h" />
