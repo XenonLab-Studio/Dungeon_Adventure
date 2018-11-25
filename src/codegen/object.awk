@@ -31,6 +31,8 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
+# two special patterns that match the top and bottom of the input file;
+# hence their code blocks are executed first and last, respectively.
 BEGIN {
    count = 0;
    obj = "";
@@ -40,6 +42,12 @@ BEGIN {
    }
 }
 
+# AWK scans through the input file (object.txt) line by line;
+# each line is tested against each of these 'patterns'.
+# Whenever a match is found, the code block that follows is executed.
+
+# matches any line that starts with a dash (the 'object lines').
+# The code initializes all attributes with an appropriate default.
 /^- / {
    outputRecord(",");
    obj = $2;
@@ -49,6 +57,8 @@ BEGIN {
    prop["destination"] = "NULL";
 }
 
+# following an object line, matches any line that starts with whitespace (the 'attribute lines').
+# The code sets an attribute value, after having validated the attribute name.
 obj && /^[ \t]+[a-z]/ {
    name = $1;
    $1 = "";
@@ -62,10 +72,16 @@ obj && /^[ \t]+[a-z]/ {
    }
 }
 
+# matches all lines that precede the first object line;
+# an additional filter condition disperses the lines to the correct output files
+# (#include lines to object.c, all others to object.h).
+# The code simply outputs each line unchanged.
 !obj && pass == (/^#include/ ? "c1" : "h") {
    print;
 }
 
+# two special patterns that match the top and bottom of the input file;
+# hence their code blocks are executed first and last, respectively.
 END {
    outputRecord("\n};");
    if (pass == "h")
@@ -78,14 +94,17 @@ function outputRecord(separator)
 {
    if (obj)
    {
+      # the variable passage is defined at the time of the AWK call; see bash script "build.sh".
       if (pass == "h")
       {
          print "#define " obj "\t(objs + " count ")";
       }
+      # the variable passage is defined at the time of the AWK call; see bash script "build.sh".
       else if (pass == "c1")
       {
          print "static const char *tags" count "[] = {" prop["tags"] ", NULL};";
       }
+      # the variable passage is defined at the time of the AWK call; see bash script "build.sh".
       else if (pass == "c2")
       {
          print "\t{\t/* " count " = " obj " */";
