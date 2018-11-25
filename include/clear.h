@@ -52,4 +52,4 @@ void clear(){
 }
 
 
-#endif // CLEAR_H
+#endif /* CLEAR_H */
