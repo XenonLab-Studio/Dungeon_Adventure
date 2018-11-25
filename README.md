@@ -54,7 +54,7 @@ sudo pacman -S git base-devel cmake make gawk
 3. chmod +x build.sh
 4. ./build.sh
 5. cd build
-6. ./dungeonadv to start the game!
+6. ./dungeonadv # to start the game!
 ```
 <br>
 
