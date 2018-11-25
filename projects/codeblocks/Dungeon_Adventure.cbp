@@ -34,13 +34,17 @@
 		<Unit filename="../../CMakeLists.txt" />
 		<Unit filename="../../LICENSE" />
 		<Unit filename="../../README.md" />
-		<Unit filename="../../dungeon_adventure_icon.png" />
+		<Unit filename="../../build.sh" />
+		<Unit filename="../../icon.png" />
 		<Unit filename="../../include/clear.h" />
 		<Unit filename="../../include/inventory.h" />
 		<Unit filename="../../include/libcolor.h" />
 		<Unit filename="../../include/location.h" />
 		<Unit filename="../../include/misc.h" />
 		<Unit filename="../../include/object.h" />
+		<Unit filename="../../src/codegen/map.awk" />
+		<Unit filename="../../src/codegen/object.awk" />
+		<Unit filename="../../src/codegen/object.txt" />
 		<Unit filename="../../src/inventory.c">
 			<Option compilerVar="CC" />
 		</Unit>
