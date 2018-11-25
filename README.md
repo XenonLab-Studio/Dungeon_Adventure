@@ -51,7 +51,7 @@ Open a terminal window, and navigate to your Downloads directory: <br>
 1. **git clone https://github.com/XenonLab-Studio/Dungeon_Adventure.git** <br>
 2. **cd Dungeon_Adventure** <br>
 3. **chmod +x build.sh** <br>
-4. 4. **./build.sh** <br>
+4. **./build.sh** <br>
 5. **cd build** <br>
 6. **./dungeonadv** to start the game! <br>
 
